@@ -7,10 +7,12 @@ provide a useful setup. Most of my projects are deployed to Heroku, so this is o
 ## Features
 
 - Latest Django (hopefully).
-- Uses [Pipenv](https://github.com/kennethreitz/pipenv) - the officially recommended Python packaging tool from Python.org.
+- Uses [Pipenv](https://github.com/kennethreitz/pipenv) - the best packaging tool.
 - [django-extensions](http://django-extensions.readthedocs.org) for the various useful commands and things.
+- [ShortUUID](https://github.com/skorokithakis/shortuuid), because I end up using it most of the time.
 - Secure by default (various things won't work on production without TLS).
-- Runs under docker-compose by default, with a PostgreSQL and Redis instance (as a cache).
+- Runs under docker-compose by default, with a PostgreSQL and Redis instance (configured as a cache and session
+  backend).
 - Can also run outside of docker-compose using SQLite, for when you aren't using Postgres-specific features yet.
 - Other things I'm forgetting now.
 
