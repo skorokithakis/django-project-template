@@ -17,3 +17,4 @@ media
 # End of https://www.gitignore.io/api/django
 
 .venv
+.coverage
