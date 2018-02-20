@@ -55,7 +55,6 @@ You're going to need to add some secrets for production. That's fine, as long as
 
 You can also specify any secret keys or settings in a `local_settings.py`, which will override your `settings.py` variables. I usually use that for local development.
 
-
 ## License
 
-Copyright © Stavros Korokithakis. Licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Copyright © Stavros Korokithakis. Licensed under the [MIT license](/LICENSE).
