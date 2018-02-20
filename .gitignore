@@ -19,3 +19,4 @@ media
 .venv
 .coverage
 misc/dbdata/
+.vscode

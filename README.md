@@ -62,5 +62,8 @@ You're going to need to add some secrets for production. That's fine, as long as
 project is structured such that all secrets can be passed as environment variables (see the settings file for the
 variable names).
 
-You can also specify any secret keys or settings in a `local_settings.py`, which will override your `settings.py`
-variables. I usually use that for local development.
+You can also specify any secret keys or settings in a `local_settings.py`, which will override your `settings.py` variables. I usually use that for local development.
+
+## License
+
+Copyright © Stavros Korokithakis. Licensed under the [MIT license](/LICENSE).
