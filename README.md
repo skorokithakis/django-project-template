@@ -28,8 +28,8 @@ django-admin.py startproject \
   project_name
 ```
 
-That's it! You're ready to run the project with `docker-compose` and add that "container expert" bullet point to your
-CV:
+Delete/change the files `README.md` and `LICENSE` to suit your project, and that's it!
+You're ready to run the project with `docker-compose` and add that "container expert" bullet point to your CV:
 
 ```bash
 $ docker-compose up
