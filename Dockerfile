@@ -6,7 +6,7 @@ RUN apt-get install -y swig libssl-dev dpkg-dev netcat
 RUN pip install -U pip pipenv
 ADD Pipfile* /code/
 WORKDIR /code
-RUN pipenv install --system --ignore-pipfile
+RUN pipenv install --system
 
 ADD misc/dokku/CHECKS /app/
 ADD misc/dokku/* /code/
