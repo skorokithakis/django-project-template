@@ -82,6 +82,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
+# Adjust this to taste.
+SESSION_ENGINE = "django.contrib.sessions.backends.cached_db"
+
 if os.getenv("IN_DOCKER"):
     DATABASES = {
         'default': {
