@@ -97,8 +97,17 @@ if os.getenv("IN_DOCKER"):
         }
     }
 
+    CACHES = {
+        "default": {
+            "BACKEND": "django_redis.cache.RedisCache",
+            "LOCATION": "redis://redis/1",
+            "OPTIONS": {
+                "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            }
+        }
+    }
+
     SESSION_CACHE_ALIAS = "default"
-    SESSION_ENGINE = "django.contrib.sessions.backends.cache"
     SESSION_COOKIE_AGE = 365 * 24 * 60 * 60
 elif os.getenv("DATABASE_URL"):
     # Running under Dokku.
