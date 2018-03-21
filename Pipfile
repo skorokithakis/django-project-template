@@ -19,6 +19,7 @@ yapf = "*"
 
 django = "*"
 django-extensions = "*"
+django-dotenv = "*"
 django-redis = "*"
 "psycopg2-binary" = "*"
 pytest = "*"

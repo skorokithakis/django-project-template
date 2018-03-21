@@ -9,6 +9,8 @@ provide a useful setup. Most of my projects are deployed to Heroku, so this is o
 - Latest Django (hopefully).
 - Uses [Pipenv](https://github.com/kennethreitz/pipenv) - the best packaging tool.
 - [django-extensions](http://django-extensions.readthedocs.org) for the various useful commands and things.
+- [Django-dotenv](https://github.com/jpadilla/django-dotenv), so you can easily set environment variables and access
+  them in your settings file.
 - [ShortUUID](https://github.com/skorokithakis/shortuuid), because I end up using it most of the time.
 - Secure by default (various things won't work on production without TLS).
 - Runs under docker-compose by default, with a PostgreSQL and Redis instance (configured as a cache and session
