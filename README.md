@@ -30,7 +30,13 @@ django-admin.py startproject \
   project_name
 ```
 
-Delete/change the files `README.md` and `LICENSE` to suit your project, and that's it!
+After installation, you need to change the following:
+
+* Change this README.
+* Delete/change the `LICENSE` file.
+* Add your domain in `settings.py`'s `ALLOWED_HOSTS`.
+* If you'te using Dokku, add your domain name to `misc/dokku/CHECKS`.
+
 You're ready to run the project with `docker-compose` and add that "container expert" bullet point to your CV:
 
 ```bash
