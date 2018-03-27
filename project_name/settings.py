@@ -82,6 +82,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
+AUTH_USER_MODEL = 'main.User'
+
 # Adjust this to taste.
 SESSION_ENGINE = "django.contrib.sessions.backends.cached_db"
 
