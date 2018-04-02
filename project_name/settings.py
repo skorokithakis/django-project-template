@@ -29,8 +29,6 @@ DEBUG = True if os.getenv("NODEBUG") is None else False
 # TODO: Change your domain names here.
 ALLOWED_HOSTS = ["web", "localhost"] if os.getenv("NODEBUG") is None else [".yourdomain.com"]
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
 # Application definition
 
 INSTALLED_APPS = [
