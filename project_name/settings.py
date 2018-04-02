@@ -26,6 +26,7 @@ SECRET_KEY = os.getenv("SECRET_KEY", 'override me')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True if os.getenv("NODEBUG") is None else False
 
+# TODO: Change your domain names here.
 ALLOWED_HOSTS = ["web", "localhost"] if os.getenv("NODEBUG") is None else [".yourdomain.com"]
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -144,14 +145,6 @@ elif os.getenv("DATABASE_URL"):
     SESSION_COOKIE_AGE = 365 * 24 * 60 * 60
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
-
-    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-
-    EMAIL_USE_TLS = True
-    EMAIL_HOST = 'smtp.mailgun.org'
-    EMAIL_HOST_USER = 'postmaster@yourdomain.com'
-    EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD", "pass")
-    EMAIL_PORT = 587
 else:
     DATABASES = {
         'default': {
@@ -159,6 +152,19 @@ else:
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
+
+if os.getenv("EMAIL_HOST_PASSWORD", ""):
+    # TODO: Change these to match your provider.
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+    EMAIL_USE_TLS = True
+    EMAIL_HOST = 'smtp.sendgrid.net'
+    EMAIL_HOST_USER = 'apikey'
+    EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD", "")
+    EMAIL_PORT = 587
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
