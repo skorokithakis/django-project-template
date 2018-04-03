@@ -60,7 +60,7 @@ Then you can access your project at [http://localhost:8080/](http://localhost:80
 ## Dokku deployment
 
 The template comes with most of the things you need to deploy it on Dokku. You will need to set up a Postgres database,
-a Redis instance and a TLS certificate firt, though. For instructions, see my post on [deploying Django projects on
+a Redis instance and a TLS certificate first, though. For instructions, see my post on [deploying Django projects on
 Dokku](https://www.stavros.io/posts/deploy-django-dokku/).
 
 
