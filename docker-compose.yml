@@ -16,6 +16,8 @@ services:
     command: bash -c "while ! nc -w 1 -z db 5432; do sleep 0.1; done; /code/manage.py migrate; while :; do /code/manage.py runserver_plus 0.0.0.0:8000; sleep 1; done"
     image: {{ project_name }}
     build: .
+    stdin_open: true
+    tty: true
     volumes:
       - .:/code
     ports:
