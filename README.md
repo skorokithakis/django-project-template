@@ -35,7 +35,7 @@ After installation, you need to change the following:
 * Change this README.
 * Delete/change the `LICENSE` file.
 * Add your domain in `settings.py`'s `ALLOWED_HOSTS`.
-* If you'te using Dokku, add your domain name to `misc/dokku/CHECKS`.
+* If you're using Dokku, add your domain name to `misc/dokku/CHECKS`.
 
 You're ready to run the project with `docker-compose` and add that "container expert" bullet point to your CV:
 
