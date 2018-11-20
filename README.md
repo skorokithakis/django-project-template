@@ -32,9 +32,11 @@ django-admin.py startproject \
 
 After installation, you need to change the following:
 
+* Run `pipenv lock` to pin the packages to the latest versions.
 * Change this README.
 * Delete/change the `LICENSE` file.
 * Add your domain in `settings.py`'s `ALLOWED_HOSTS`.
+* Customize the `.env` file.
 * If you're using Dokku, add your domain name to `misc/dokku/CHECKS`.
 
 You're ready to run the project with `docker-compose` and add that "container expert" bullet point to your CV:
