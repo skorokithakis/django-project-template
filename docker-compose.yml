@@ -4,7 +4,7 @@ services:
   redis:
     image: redis
   db:
-    image: postgres
+    image: postgres:10
     environment:
       POSTGRES_PASSWORD: password
     volumes:
