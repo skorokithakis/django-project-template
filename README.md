@@ -7,7 +7,7 @@ provide a useful setup. Most of my projects are deployed to Heroku, so this is o
 ## Features
 
 - Latest Django (hopefully).
-- Uses [Pipenv](https://github.com/kennethreitz/pipenv) - the best packaging tool.
+- Uses [Poetry](https://poetry.eustace.io/) - the best packaging tool.
 - [django-extensions](http://django-extensions.readthedocs.org) for the various useful commands and things.
 - [Django-dotenv](https://github.com/jpadilla/django-dotenv), so you can easily set environment variables and access
   them in your settings file.
@@ -32,7 +32,7 @@ django-admin.py startproject \
 
 After installation, you need to change the following:
 
-* Run `pipenv lock` to pin the packages to the latest versions.
+* Run `poetry lock` to pin the packages to the latest versions.
 * Change this README.
 * Delete/change the `LICENSE` file.
 * Add your domain in `settings.py`'s `ALLOWED_HOSTS`.
@@ -51,7 +51,7 @@ and you can assign a different hostname in your `/etc/hosts` if you want it to l
 If you don't want to bother with `docker-compose` yet, you can run it locally:
 
 ```bash
-$ pipenv install --dev
+$ poetry install
 $ ./manage.py migrate
 $ ./manage.py runserver_plus
 ```

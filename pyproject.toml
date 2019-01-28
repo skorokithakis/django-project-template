@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "{{ project_name }}"
+version = "0.1.0"
+description = ""
+authors = []
+
+[tool.poetry.dependencies]
+python = ">=3.5"
+django = "*"
+django-extensions = "*"
+django-dotenv = "*"
+django-redis = "*"
+psycopg2-binary = "*"
+pytest = "*"
+pytest-cov = "*"
+raven = "*"
+shortuuid = "*"
+uwsgi = "*"
+werkzeug = "*"
+whitenoise = "*"
+
+[tool.poetry.dev-dependencies]
+ipython = "*"
+bpython = "*"
+pudb = "*"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
