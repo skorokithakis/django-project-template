@@ -26,8 +26,8 @@ Installing the template is easy, you don't really have to do much:
 ```bash
 django-admin.py startproject \
   --template=https://github.com/skorokithakis/django-project-template/archive/master.zip \
-  --extension py,cfg,yml,ini \
-  project_name
+  --extension py,cfg,yml,ini,toml \
+  <project_name>
 ```
 
 After installation, you need to change the following:
