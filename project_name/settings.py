@@ -112,7 +112,7 @@ if os.getenv("IN_DOCKER"):
 elif os.getenv("DATABASE_URL"):
     # Running under Dokku.
     USER, PASSWORD, HOST, PORT, NAME = re.match(  # type: ignore
-        "^postgres://(?P<username>.*?)\:(?P<password>.*?)\@(?P<host>.*?)\:(?P<port>\d+)\/(?P<db>.*?)$",
+        r"^postgres://(?P<username>.*?)\:(?P<password>.*?)\@(?P<host>.*?)\:(?P<port>\d+)\/(?P<db>.*?)$",
         os.getenv("DATABASE_URL", ""),
     ).groups()
 
