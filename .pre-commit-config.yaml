@@ -26,4 +26,5 @@ repos:
       name: Check for uncreated migrations.
       entry: bash -c "./manage.py makemigrations --check --dry-run"
       files: "models\\.py$"
+      pass_filenames: false
       stages: [commit]
