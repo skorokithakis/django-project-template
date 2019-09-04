@@ -87,6 +87,9 @@ AUTH_USER_MODEL = "main.User"
 # Adjust this to taste.
 SESSION_ENGINE = "django.contrib.sessions.backends.cached_db"
 
+# Keep connections in the pool for an hour.
+CONN_MAX_AGE = 60 * 60
+
 if os.getenv("IN_DOCKER"):
     DATABASES = {
         "default": {
