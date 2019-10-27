@@ -193,3 +193,4 @@ dmypy.json
 
 misc/dbdata/
 .vscode
+_static/
