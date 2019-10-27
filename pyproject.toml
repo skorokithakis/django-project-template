@@ -6,7 +6,7 @@ authors = []
 
 [tool.poetry.dependencies]
 python = ">=3.7"
-django = "*"
+django = ">=2.2"
 django-extensions = "*"
 django-dotenv = "*"
 django-redis = "*"

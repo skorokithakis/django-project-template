@@ -56,7 +56,6 @@ MIDDLEWARE = [
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.contrib.sites.middleware.CurrentSiteMiddleware",
-    "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
@@ -142,7 +141,6 @@ elif os.getenv("DATABASE_URL"):
     SESSION_ENGINE = "django.contrib.sessions.backends.cache"
     SESSION_COOKIE_AGE = 365 * 24 * 60 * 60
     SESSION_COOKIE_SECURE = True
-    CSRF_COOKIE_SECURE = True
 else:
     DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": os.path.join(BASE_DIR, "db.sqlite3")}}
 
