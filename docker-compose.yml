@@ -5,6 +5,7 @@ services:
     image: redis
   db:
     image: postgres:10
+    stop_signal: SIGINT  # Fast shutdown.
     environment:
       POSTGRES_PASSWORD: password
     volumes:
@@ -15,13 +16,12 @@ services:
       bash -c "while ! nc -w 1 -z db 5432;
                do sleep 0.1;
                done;
+
                ./manage.py migrate;
-               while :;
-               do ./manage.py runserver 0.0.0.0:8000;
-               sleep 1;
-               done"
-    image: {{ project_name }}
+               exec ./manage.py runserver 0.0.0.0:8000"
+    image: "{{ project_name }}"
     build: .
+    stop_signal: SIGINT  # The devserver only stops on SIGINT.
     stdin_open: true
     tty: true
     volumes:
