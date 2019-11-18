@@ -9,10 +9,11 @@ https://docs.djangoproject.com/en/2.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
-
 import os
 import re
-from typing import Dict, Union  # noqa
+
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,7 +28,11 @@ SECRET_KEY = os.getenv("SECRET_KEY", "override me")
 DEBUG = True if os.getenv("NODEBUG") is None else False
 
 # TODO: Change your domain names here.
-ALLOWED_HOSTS = ["web", os.getenv("ALLOWED_HOST", "localhost")] if os.getenv("NODEBUG") is None else [".yourdomain.com"]
+ALLOWED_HOSTS = (
+    ["web", os.getenv("ALLOWED_HOST", "localhost")]
+    if os.getenv("NODEBUG") is None
+    else [".yourdomain.com"]
+)
 
 # TODO: Change the default "from" email here.
 DEFAULT_FROM_EMAIL = "me@mydomain.com"
@@ -44,14 +49,12 @@ INSTALLED_APPS = [
     "whitenoise.runserver_nostatic",
     "django.contrib.staticfiles",
     "django_extensions",
-    "raven.contrib.django.raven_compat",
     "main",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "{{ project_name }}.stats_middleware.StatsMiddleware",
-    "raven.contrib.django.raven_compat.middleware.SentryResponseErrorIdMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -142,7 +145,12 @@ elif os.getenv("DATABASE_URL"):
     SESSION_COOKIE_AGE = 365 * 24 * 60 * 60
     SESSION_COOKIE_SECURE = True
 else:
-    DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": os.path.join(BASE_DIR, "db.sqlite3")}}
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+        }
+    }
 
 if os.getenv("EMAIL_HOST_PASSWORD", ""):
     # TODO: Change these to match your provider.
@@ -161,7 +169,9 @@ else:
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
+    {
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
+    },
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
     {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
@@ -182,13 +192,18 @@ USE_TZ = True
 
 SITE_ID = 1
 
-RAVEN_CONFIG = {"dsn": os.getenv("RAVEN_DSN")}  # type: Dict[str, Union[None, str]]
+sentry_sdk.init(dsn=os.getenv("SENTRY_DSN"), integrations=[DjangoIntegration()])
 
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
     "handlers": {"console": {"class": "logging.StreamHandler"}},
-    "loggers": {"django": {"handlers": ["console"], "level": os.getenv("DJANGO_LOG_LEVEL", "INFO")}},
+    "loggers": {
+        "django": {
+            "handlers": ["console"],
+            "level": os.getenv("DJANGO_LOG_LEVEL", "INFO"),
+        }
+    },
 }
 
 # Static files (CSS, JavaScript, Images)
