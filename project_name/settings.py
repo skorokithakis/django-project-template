@@ -153,15 +153,12 @@ else:
         }
     }
 
-if os.getenv("EMAIL_HOST_PASSWORD", ""):
-    # TODO: Change these to match your provider.
+if os.getenv("EMAIL_URL", ""):
     EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-
-    EMAIL_USE_TLS = True
-    EMAIL_HOST = "smtp.sendgrid.net"
-    EMAIL_HOST_USER = "apikey"
-    EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD", "")
-    EMAIL_PORT = 587
+    EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, EMAIL_HOST, EMAIL_PORT = re.match(  # type: ignore
+        r"^email://(?P<username>.*)\:(?P<password>.*?)\@(?P<host>.*?)\:(?P<port>\d+)\/?$",
+        os.getenv("EMAIL_URL", ""),
+    ).groups()
 else:
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
