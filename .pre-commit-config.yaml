@@ -31,4 +31,3 @@ repos:
       entry: bash -c "./manage.py makemigrations --check --dry-run"
       types: ["python"]
       pass_filenames: false
-      stages: [commit]
