@@ -83,6 +83,8 @@ TEMPLATES = [
     }
 ]
 
+TEMPLATE_STRING_IF_INVALID = "VARIABLE UNDEFINED: %s"
+
 WSGI_APPLICATION = "{{ project_name }}.wsgi.application"
 
 AUTH_USER_MODEL = "main.User"
