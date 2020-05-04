@@ -9,7 +9,7 @@ services:
     environment:
       POSTGRES_PASSWORD: password
     volumes:
-      - ./misc/dbdata:/var/lib/postgresql/data
+      - ./misc/dbdata:/var/lib/postgresql/data:delegated
   web:
     # Docker hack to wait until Postgres is up, then run stuff.
     command: >
@@ -29,7 +29,7 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - .:/code
+      - .:/code:cached
     ports:
       - "8000:8000"
     depends_on:
@@ -45,4 +45,4 @@ services:
       - "80:8000"
     command: -conf /code/misc/caddyfile.conf
     volumes:
-      - .:/code
+      - .:/code:cached
