@@ -194,6 +194,10 @@ SITE_ID = 1
 
 sentry_sdk.init(dsn=os.getenv("SENTRY_DSN"), integrations=[DjangoIntegration()])
 
+TEST_RUNNER = "xmlrunner.extra.djangotestrunner.XMLTestRunner"
+
+TEST_OUTPUT_FILE_NAME = "report.xml"
+
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,

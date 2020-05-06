@@ -5,7 +5,7 @@ description = ""
 authors = []
 
 [tool.poetry.dependencies]
-python = ">=3.7"
+python = ">=3.8"
 django = ">=2.2"
 django-extensions = "*"
 django-dotenv = "*"
@@ -15,6 +15,7 @@ pytest = "*"
 pytest-cov = "*"
 sentry-sdk = "*"
 shortuuid = "*"
+unittest-xml-reporting = "*"
 uwsgi = "*"
 werkzeug = "*"
 whitenoise = "*"

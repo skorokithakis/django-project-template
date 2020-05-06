@@ -1,4 +1,4 @@
-image: python:3.7
+image: python:3.8
 
 stages:
   - build
@@ -22,3 +22,6 @@ test:
   script:
     - pre-commit run -a --hook-stage manual
     - python manage.py test
+  artifacts:
+    reports:
+      junit: report.xml
