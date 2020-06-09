@@ -23,7 +23,7 @@ services:
                do exec ./manage.py runserver_plus 0.0.0.0:8000;
                done;
                "
-    image: "{{ project_name }}"
+    image: "web"
     build: .
     stop_signal: SIGINT  # The devserver only stops on SIGINT.
     stdin_open: true
