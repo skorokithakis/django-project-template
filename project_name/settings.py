@@ -81,6 +81,8 @@ TEMPLATES = [
 
 TEMPLATE_STRING_IF_INVALID = "VARIABLE UNDEFINED: %s"
 
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
+
 WSGI_APPLICATION = "{{ project_name }}.wsgi.application"
 
 AUTH_USER_MODEL = "main.User"
