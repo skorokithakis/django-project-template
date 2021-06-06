@@ -5,6 +5,7 @@ services:
     image: redis
   db:
     image: postgres:10
+    user: ${UID:-1000}:${UID:-1000}
     stop_signal: SIGINT  # Fast shutdown.
     environment:
       POSTGRES_PASSWORD: password
@@ -24,6 +25,7 @@ services:
                done;
                "
     image: "web"
+    user: ${UID:-1000}:${UID:-1000}
     build: .
     stop_signal: SIGINT  # The devserver only stops on SIGINT.
     stdin_open: true
