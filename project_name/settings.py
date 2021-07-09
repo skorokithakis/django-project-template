@@ -215,19 +215,3 @@ STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "_static")
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-
-try:
-    from .local_settings import *  # noqa
-    from .local_settings import LOCAL_INSTALLED_APPS, LOCAL_MIDDLEWARE  # type: ignore
-except ImportError:
-    pass
-
-try:
-    INSTALLED_APPS += LOCAL_INSTALLED_APPS
-except:  # noqa
-    pass
-
-try:
-    MIDDLEWARE += LOCAL_MIDDLEWARE
-except:  # noqa
-    pass
