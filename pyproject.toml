@@ -24,8 +24,7 @@ whitenoise = "*"
 ipython = "*"
 bpython = "*"
 pudb = "*"
-django-stubs = "^1.1.0"
-mypy = "^0.740"
+django-stubs = "*"
 
 [build-system]
 requires = ["poetry>=0.12"]
