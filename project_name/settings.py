@@ -34,6 +34,10 @@ ALLOWED_HOSTS = ["*"] if os.getenv("NODEBUG") is None else [".yourdomain.com"]
 # TODO: Change the default "from" email here.
 DEFAULT_FROM_EMAIL = "me@mydomain.com"
 
+# Sometimes my CSRF protection would fail locally due to misdetection of HTTPS as HTTPS.
+# If you don't need this, you can remove it, but it shouldn't hurt anything.
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 # Application definition
 
 INSTALLED_APPS = [
