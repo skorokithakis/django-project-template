@@ -34,9 +34,12 @@ ALLOWED_HOSTS = ["*"] if os.getenv("NODEBUG") is None else [".yourdomain.com"]
 # TODO: Change the default "from" email here.
 DEFAULT_FROM_EMAIL = "me@mydomain.com"
 
+# TODO: Add environment variables for this, "production", "staging".
+ENVIRONMENT = os.getenv("ENVIRONMENT", "local")
+
 # Sometimes my CSRF protection would fail locally due to misdetection of HTTPS as HTTPS.
 # If you don't need this, you can remove it, but it shouldn't hurt anything.
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 # Application definition
 
@@ -195,7 +198,12 @@ USE_TZ = True
 
 SITE_ID = 1
 
-sentry_sdk.init(dsn=os.getenv("SENTRY_DSN"), integrations=[DjangoIntegration()])
+sentry_sdk.init(
+    dsn=os.getenv("SENTRY_DSN"),
+    traces_sample_rate=0.2,
+    environment=ENVIRONMENT,
+    integrations=[DjangoIntegration()],
+)
 
 TEST_RUNNER = "xmlrunner.extra.djangotestrunner.XMLTestRunner"
 
