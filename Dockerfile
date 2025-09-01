@@ -12,7 +12,8 @@ ADD uv.lock* /code/
 WORKDIR /code
 
 # Install dependencies at system level.
-RUN uv sync --frozen --no-dev
+RUN uv export --format requirements.txt -o requirements.txt
+RUN uv pip install --system -r requirements.txt
 
 ADD misc/dokku/CHECKS /app/
 ADD misc/dokku/* /code/
