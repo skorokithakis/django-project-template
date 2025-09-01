@@ -1,14 +1,18 @@
-FROM python:3.8
+FROM python:3.13
 ENV PYTHONUNBUFFERED 1
 RUN apt-get update
-RUN apt-get install -y swig libssl-dev dpkg-dev netcat
+RUN apt-get install -y swig libssl-dev dpkg-dev
 
-RUN pip install -U --pre pip poetry
-ADD poetry.lock /code/
+# Install uv.
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /usr/local/bin/uv
+
+# Copy dependency files.
 ADD pyproject.toml /code/
-RUN poetry config virtualenvs.create false
+ADD uv.lock* /code/
 WORKDIR /code
-RUN /bin/bash -c '[[ -z "${IN_DOCKER}" ]] && poetry install --no-interaction --no-root || poetry install --no-dev --no-interaction --no-root'
+
+# Install dependencies at system level.
+RUN uv sync --frozen --no-dev
 
 ADD misc/dokku/CHECKS /app/
 ADD misc/dokku/* /code/

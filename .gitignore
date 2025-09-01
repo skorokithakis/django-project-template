@@ -195,3 +195,4 @@ misc/dbdata/
 .vscode
 _static/
 report.xml
+.claude/
