@@ -2,7 +2,7 @@
 name = "{{ project_name }}"
 version = "0.1.0"
 description = ""
-requires-python = ">=3.8"
+requires-python = ">=3.13"
 dependencies = [
     "django>=2.2",
     "djangoql",
