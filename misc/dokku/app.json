@@ -1,7 +1,23 @@
 {
-  "scripts": {
-    "dokku": {
-      "predeploy": "python /code/manage.py migrate --noinput"
+    "healthchecks": {
+        "web": [
+            {
+                "type":        "startup",
+                "name":        "web check",
+                "description": "Checking if the app responds to the / endpoint",
+                "path":        "/",
+                "attempts": 3
+            }
+        ]
+    },
+    "scripts": {
+        "dokku": {
+            "predeploy": "python /code/manage.py migrate --noinput"
+        }
+    },
+    "formation": {
+        "web": {
+            "quantity": 1
+        }
     }
-  }
 }

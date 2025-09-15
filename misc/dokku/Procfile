@@ -1,1 +1,1 @@
-web: /usr/local/bin/uwsgi --chdir=/code/ --ini=/code/uwsgi.ini
+web: /usr/local/bin/uwsgi --chdir=/code/ --ini=/code/misc/dokku/uwsgi.ini
