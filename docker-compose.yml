@@ -2,7 +2,7 @@ services:
   redis:
     image: redis
   db:
-    image: postgres:10
+    image: postgres:18
     user: ${UID:-1000}:${UID:-1000}
     stop_signal: SIGINT  # Fast shutdown.
     ports:

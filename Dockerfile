@@ -1,5 +1,5 @@
-FROM python:3.13
-ENV PYTHONUNBUFFERED 1
+FROM python:3.14
+ENV PYTHONUNBUFFERED=1
 RUN apt-get update
 RUN apt-get install -y swig libssl-dev dpkg-dev
 
