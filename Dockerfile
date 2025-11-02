@@ -15,5 +15,8 @@ WORKDIR /code
 RUN uv export --format requirements.txt -o requirements.txt
 RUN uv pip install --system -r requirements.txt
 
+ADD misc/dokku/CHECKS /app/
+ADD misc/dokku/* /code/
+
 COPY . /code/
 RUN /code/manage.py collectstatic --noinput
