@@ -203,7 +203,7 @@ SITE_ID = 1
 
 sentry_sdk.init(
     dsn=os.getenv("SENTRY_DSN"),
-    traces_sample_rate=0.2,
+    traces_sample_rate=0.05,
     environment=ENVIRONMENT,
     integrations=[DjangoIntegration()],
 )
