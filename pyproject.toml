@@ -19,8 +19,8 @@ dependencies = [
     "whitenoise",
 ]
 
-[tool.uv]
-dev-dependencies = [
+[dependency-groups]
+dev = [
     "ipython",
     "bpython",
     "pudb",
