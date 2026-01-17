@@ -41,11 +41,11 @@ services:
     environment:
       IN_DOCKER: 1
   webserver:
-    image: jumanjiman/caddy
+    image: caddy:2
     depends_on:
       - web
     ports:
-      - "80:8000"
-    command: -conf /code/misc/caddyfile.conf
+      - "80:80"
     volumes:
       - .:/code:cached
+      - ./misc/Caddyfile:/etc/caddy/Caddyfile:ro
